@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:plant_tinker/res/palette.dart';
 import 'package:plant_tinker/widgets/dashboard/humidity_chart.dart';
 import 'package:plant_tinker/widgets/dashboard/light_chart.dart';
@@ -64,6 +65,10 @@ class _DashboardPageState extends State<DashboardPage> {
             if (snapshot.data != null) {
               final retrievedDocs = snapshot.data!.docs;
               print(retrievedDocs.length);
+              final formatter = DateFormat.jm().add_yMMMMd();
+              String lastUpdatedDateTime = formatter.format(
+                  (DateTime.fromMillisecondsSinceEpoch(
+                      retrievedDocs.last.data()['timestamp'] * 1000)));
 
               return Padding(
                 padding: const EdgeInsets.only(
@@ -74,6 +79,17 @@ class _DashboardPageState extends State<DashboardPage> {
                 child: ListView(
                   physics: BouncingScrollPhysics(),
                   children: [
+                    Text(
+                      'Last updated on: $lastUpdatedDateTime',
+                      style: TextStyle(
+                        color: Palette.red_accent,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 1,
+                        fontSize: 12.0,
+                      ),
+                    ),
+                    SizedBox(height: 16.0),
                     Stack(
                       children: [
                         Column(
