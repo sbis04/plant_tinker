@@ -72,6 +72,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   right: 16.0,
                 ),
                 child: ListView(
+                  physics: BouncingScrollPhysics(),
                   children: [
                     Stack(
                       children: [
