@@ -17,7 +17,7 @@ class MoistureChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1.50,
+      aspectRatio: 1.30,
       child: Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -40,6 +40,19 @@ class MoistureChart extends StatelessWidget {
 
   LineChartData mainData() {
     return LineChartData(
+      axisTitleData: FlAxisTitleData(
+        topTitle: AxisTitle(
+          showTitle: true,
+          titleText: 'Moisture',
+          textStyle: TextStyle(
+            fontSize: 20.0,
+            fontFamily: 'Montserrat',
+            color: Palette.green_accent,
+          ),
+          margin: 8.0,
+          textAlign: TextAlign.left,
+        ),
+      ),
       gridData: FlGridData(
         show: true,
         drawVerticalLine: false,
