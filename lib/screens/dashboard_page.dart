@@ -65,208 +65,412 @@ class _DashboardPageState extends State<DashboardPage> {
               final retrievedDocs = snapshot.data!.docs;
               print(retrievedDocs.length);
 
-              return SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 16.0,
-                    left: 16.0,
-                    right: 16.0,
-                  ),
-                  child: Stack(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Palette.green_accent.withOpacity(0.6),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Health',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontFamily: 'Montserrat',
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                          fontSize: 24.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Good',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontFamily: 'Montserrat',
-                                          fontWeight: FontWeight.w700,
-                                          letterSpacing: 1,
-                                          fontSize: 24.0,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 8.0),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Icon(
-                                        Icons.info,
-                                        size: 26.0,
-                                        color: Colors.white,
-                                      ),
-                                      SizedBox(width: 4.0),
-                                      Expanded(
-                                        child: Text(
-                                          'The moisture content of the plant is alright',
+              return Padding(
+                padding: const EdgeInsets.only(
+                  top: 16.0,
+                  left: 16.0,
+                  right: 16.0,
+                ),
+                child: ListView(
+                  children: [
+                    Stack(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Palette.green_accent.withOpacity(0.6),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Health',
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w500,
+                                            fontWeight: FontWeight.w400,
                                             letterSpacing: 1,
-                                            fontSize: 14.0,
+                                            fontSize: 24.0,
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                                        Text(
+                                          'Good',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w700,
+                                            letterSpacing: 1,
+                                            fontSize: 24.0,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 8.0),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Icon(
+                                          Icons.info,
+                                          size: 26.0,
+                                          color: Colors.white,
+                                        ),
+                                        SizedBox(width: 4.0),
+                                        Expanded(
+                                          child: Text(
+                                            'The moisture content of the plant is alright',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontFamily: 'Montserrat',
+                                              fontWeight: FontWeight.w500,
+                                              letterSpacing: 1,
+                                              fontSize: 14.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(height: 16.0),
-                          Text(
-                            'Temperature',
-                            style: TextStyle(
-                              color: Palette.blue_accent,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1,
-                              fontSize: 30.0,
+                            SizedBox(height: 16.0),
+                            Text(
+                              'Temperature',
+                              style: TextStyle(
+                                color: Palette.blue_accent,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1,
+                                fontSize: 30.0,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 4.0),
-                          Text(
-                            retrievedDocs.last
-                                    .data()['temperature']
-                                    .toString() +
-                                '°C',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1,
-                              fontSize: 50.0,
+                            SizedBox(height: 4.0),
+                            Text(
+                              retrievedDocs.last
+                                      .data()['temperature']
+                                      .toString() +
+                                  '°C',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1,
+                                fontSize: 50.0,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 16.0),
-                          Text(
-                            'Humidity',
-                            style: TextStyle(
-                              color: Palette.blue_accent,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1,
-                              fontSize: 30.0,
+                            SizedBox(height: 16.0),
+                            Text(
+                              'Humidity',
+                              style: TextStyle(
+                                color: Palette.blue_accent,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1,
+                                fontSize: 30.0,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 4.0),
-                          Text(
-                            retrievedDocs.last.data()['humidity'].toString() +
-                                '%',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1,
-                              fontSize: 50.0,
+                            SizedBox(height: 4.0),
+                            Text(
+                              retrievedDocs.last.data()['humidity'].toString() +
+                                  '%',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1,
+                                fontSize: 50.0,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 16.0),
-                          Text(
-                            'Moisture',
-                            style: TextStyle(
-                              color: Palette.blue_accent,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1,
-                              fontSize: 30.0,
+                            SizedBox(height: 16.0),
+                            Text(
+                              'Moisture',
+                              style: TextStyle(
+                                color: Palette.blue_accent,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1,
+                                fontSize: 30.0,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 4.0),
-                          Text(
-                            (retrievedDocs.last.data()['moisture'] as double)
-                                    .toStringAsFixed(2) +
-                                '%',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1,
-                              fontSize: 50.0,
+                            SizedBox(height: 4.0),
+                            Text(
+                              (retrievedDocs.last.data()['moisture'] as double)
+                                      .toStringAsFixed(2) +
+                                  '%',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1,
+                                fontSize: 50.0,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 16.0),
-                          Text(
-                            'Light',
-                            style: TextStyle(
-                              color: Palette.blue_accent,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1,
-                              fontSize: 30.0,
+                            SizedBox(height: 16.0),
+                            Text(
+                              'Light',
+                              style: TextStyle(
+                                color: Palette.blue_accent,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1,
+                                fontSize: 30.0,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 4.0),
-                          Text(
-                            (retrievedDocs.last.data()['light'])
-                                    .toStringAsFixed(0) +
-                                '%',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1,
-                              fontSize: 50.0,
+                            SizedBox(height: 4.0),
+                            Text(
+                              (retrievedDocs.last.data()['light'])
+                                      .toStringAsFixed(0) +
+                                  '%',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1,
+                                fontSize: 50.0,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 24.0),
-                          MoistureChart(
-                            docs: retrievedDocs,
-                          ),
-                          SizedBox(height: 24.0),
-                          HumidityChart(
-                            docs: retrievedDocs,
-                          ),
-                          SizedBox(height: 24.0),
-                          LightChart(
-                            docs: retrievedDocs,
-                          ),
-                          SizedBox(height: 24.0),
-                        ],
-                      ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 85.0),
-                          child: Image.asset(
-                            'assets/plant_shadow.png',
-                            height: 500,
+                          ],
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 85.0),
+                            child: Image.asset(
+                              'assets/plant_shadow.png',
+                              height: 500,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                    SizedBox(height: 24.0),
+                    MoistureChart(
+                      docs: retrievedDocs,
+                    ),
+                    SizedBox(height: 24.0),
+                    HumidityChart(
+                      docs: retrievedDocs,
+                    ),
+                    SizedBox(height: 24.0),
+                    LightChart(
+                      docs: retrievedDocs,
+                    ),
+                    SizedBox(height: 24.0),
+                  ],
                 ),
               );
+
+              // return SingleChildScrollView(
+              //   physics: BouncingScrollPhysics(),
+              //   child: Padding(
+              //     padding: const EdgeInsets.only(
+              //       top: 16.0,
+              //       left: 16.0,
+              //       right: 16.0,
+              //     ),
+              //     child: Stack(
+              //       children: [
+              //         Column(
+              //           crossAxisAlignment: CrossAxisAlignment.start,
+              //           children: [
+              //             Container(
+              //               decoration: BoxDecoration(
+              //                 color: Palette.green_accent.withOpacity(0.6),
+              //                 borderRadius: BorderRadius.circular(10),
+              //               ),
+              //               child: Padding(
+              //                 padding: const EdgeInsets.all(16.0),
+              //                 child: Column(
+              //                   children: [
+              //                     Row(
+              //                       mainAxisAlignment:
+              //                           MainAxisAlignment.spaceBetween,
+              //                       children: [
+              //                         Text(
+              //                           'Health',
+              //                           style: TextStyle(
+              //                             color: Colors.white,
+              //                             fontFamily: 'Montserrat',
+              //                             fontWeight: FontWeight.w400,
+              //                             letterSpacing: 1,
+              //                             fontSize: 24.0,
+              //                           ),
+              //                         ),
+              //                         Text(
+              //                           'Good',
+              //                           style: TextStyle(
+              //                             color: Colors.white,
+              //                             fontFamily: 'Montserrat',
+              //                             fontWeight: FontWeight.w700,
+              //                             letterSpacing: 1,
+              //                             fontSize: 24.0,
+              //                           ),
+              //                         ),
+              //                       ],
+              //                     ),
+              //                     SizedBox(height: 8.0),
+              //                     Row(
+              //                       crossAxisAlignment:
+              //                           CrossAxisAlignment.start,
+              //                       children: [
+              //                         Icon(
+              //                           Icons.info,
+              //                           size: 26.0,
+              //                           color: Colors.white,
+              //                         ),
+              //                         SizedBox(width: 4.0),
+              //                         Expanded(
+              //                           child: Text(
+              //                             'The moisture content of the plant is alright',
+              //                             style: TextStyle(
+              //                               color: Colors.white,
+              //                               fontFamily: 'Montserrat',
+              //                               fontWeight: FontWeight.w500,
+              //                               letterSpacing: 1,
+              //                               fontSize: 14.0,
+              //                             ),
+              //                           ),
+              //                         ),
+              //                       ],
+              //                     ),
+              //                   ],
+              //                 ),
+              //               ),
+              //             ),
+              //             SizedBox(height: 16.0),
+              //             Text(
+              //               'Temperature',
+              //               style: TextStyle(
+              //                 color: Palette.blue_accent,
+              //                 fontFamily: 'Montserrat',
+              //                 fontWeight: FontWeight.w500,
+              //                 letterSpacing: 1,
+              //                 fontSize: 30.0,
+              //               ),
+              //             ),
+              //             SizedBox(height: 4.0),
+              //             Text(
+              //               retrievedDocs.last
+              //                       .data()['temperature']
+              //                       .toString() +
+              //                   '°C',
+              //               style: TextStyle(
+              //                 color: Colors.white,
+              //                 fontFamily: 'Montserrat',
+              //                 fontWeight: FontWeight.w500,
+              //                 letterSpacing: 1,
+              //                 fontSize: 50.0,
+              //               ),
+              //             ),
+              //             SizedBox(height: 16.0),
+              //             Text(
+              //               'Humidity',
+              //               style: TextStyle(
+              //                 color: Palette.blue_accent,
+              //                 fontFamily: 'Montserrat',
+              //                 fontWeight: FontWeight.w500,
+              //                 letterSpacing: 1,
+              //                 fontSize: 30.0,
+              //               ),
+              //             ),
+              //             SizedBox(height: 4.0),
+              //             Text(
+              //               retrievedDocs.last.data()['humidity'].toString() +
+              //                   '%',
+              //               style: TextStyle(
+              //                 color: Colors.white,
+              //                 fontFamily: 'Montserrat',
+              //                 fontWeight: FontWeight.w500,
+              //                 letterSpacing: 1,
+              //                 fontSize: 50.0,
+              //               ),
+              //             ),
+              //             SizedBox(height: 16.0),
+              //             Text(
+              //               'Moisture',
+              //               style: TextStyle(
+              //                 color: Palette.blue_accent,
+              //                 fontFamily: 'Montserrat',
+              //                 fontWeight: FontWeight.w500,
+              //                 letterSpacing: 1,
+              //                 fontSize: 30.0,
+              //               ),
+              //             ),
+              //             SizedBox(height: 4.0),
+              //             Text(
+              //               (retrievedDocs.last.data()['moisture'] as double)
+              //                       .toStringAsFixed(2) +
+              //                   '%',
+              //               style: TextStyle(
+              //                 color: Colors.white,
+              //                 fontFamily: 'Montserrat',
+              //                 fontWeight: FontWeight.w500,
+              //                 letterSpacing: 1,
+              //                 fontSize: 50.0,
+              //               ),
+              //             ),
+              //             SizedBox(height: 16.0),
+              //             Text(
+              //               'Light',
+              //               style: TextStyle(
+              //                 color: Palette.blue_accent,
+              //                 fontFamily: 'Montserrat',
+              //                 fontWeight: FontWeight.w500,
+              //                 letterSpacing: 1,
+              //                 fontSize: 30.0,
+              //               ),
+              //             ),
+              //             SizedBox(height: 4.0),
+              //             Text(
+              //               (retrievedDocs.last.data()['light'])
+              //                       .toStringAsFixed(0) +
+              //                   '%',
+              //               style: TextStyle(
+              //                 color: Colors.white,
+              //                 fontFamily: 'Montserrat',
+              //                 fontWeight: FontWeight.w500,
+              //                 letterSpacing: 1,
+              //                 fontSize: 50.0,
+              //               ),
+              //             ),
+              //             SizedBox(height: 24.0),
+              //             MoistureChart(
+              //               docs: retrievedDocs,
+              //             ),
+              //             SizedBox(height: 24.0),
+              //             HumidityChart(
+              //               docs: retrievedDocs,
+              //             ),
+              //             SizedBox(height: 24.0),
+              //             LightChart(
+              //               docs: retrievedDocs,
+              //             ),
+              //             SizedBox(height: 24.0),
+              //           ],
+              //         ),
+              //         Align(
+              //           alignment: Alignment.centerRight,
+              //           child: Padding(
+              //             padding: const EdgeInsets.only(top: 85.0),
+              //             child: Image.asset(
+              //               'assets/plant_shadow.png',
+              //               height: 500,
+              //             ),
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // );
               // return Container();
             }
 

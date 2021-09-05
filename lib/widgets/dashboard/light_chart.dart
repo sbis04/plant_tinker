@@ -158,7 +158,8 @@ class LightChart extends StatelessWidget {
             for (int i = 0; i < docs.length; i++)
               FlSpot(
                 i.toDouble(),
-                docs[i].data()['light'],
+                double.parse(
+                    (docs[i].data()['light'] as double).toStringAsFixed(2)),
               ),
           ],
           isCurved: false,
