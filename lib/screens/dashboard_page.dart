@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_tinker/res/palette.dart';
+import 'package:plant_tinker/widgets/dashboard/humidity_chart.dart';
+import 'package:plant_tinker/widgets/dashboard/light_chart.dart';
 import 'package:plant_tinker/widgets/dashboard/moisture_chart.dart';
 import 'package:flutter/services.dart';
 
@@ -236,99 +238,19 @@ class _DashboardPageState extends State<DashboardPage> {
                               fontSize: 50.0,
                             ),
                           ),
-                          // SizedBox(height: 24.0),
-                          // RichText(
-                          //   text: TextSpan(
-                          //     text: 'Temperature: ',
-                          //     style: TextStyle(
-                          //       color: Palette.blue_accent,
-                          //       fontFamily: 'Montserrat',
-                          //       fontWeight: FontWeight.w500,
-                          //       letterSpacing: 1,
-                          //       fontSize: 18.0,
-                          //     ),
-                          //     children: [
-                          //       TextSpan(
-                          //         text: retrievedDocs.last
-                          //                 .data()['temperature']
-                          //                 .toString() +
-                          //             '°C',
-                          //         style: TextStyle(
-                          //           color: Colors.white,
-                          //         ),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // ),
-                          // SizedBox(height: 8.0),
-                          // RichText(
-                          //   text: TextSpan(
-                          //     text: 'Humidity: ',
-                          //     style: TextStyle(
-                          //       color: Palette.blue_accent,
-                          //       letterSpacing: 1,
-                          //       fontSize: 18.0,
-                          //     ),
-                          //     children: [
-                          //       TextSpan(
-                          //         text: retrievedDocs.last
-                          //                 .data()['humidity']
-                          //                 .toString() +
-                          //             '%',
-                          //         style: TextStyle(
-                          //           color: Colors.white,
-                          //         ),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // ),
-                          // SizedBox(height: 8.0),
-                          // RichText(
-                          //   text: TextSpan(
-                          //     text: 'Moisture: ',
-                          //     style: TextStyle(
-                          //       color: Palette.blue_accent,
-                          //       letterSpacing: 1,
-                          //       fontSize: 18.0,
-                          //     ),
-                          //     children: [
-                          //       TextSpan(
-                          //         text: (retrievedDocs.last.data()['moisture']
-                          //                     as double)
-                          //                 .toStringAsFixed(2) +
-                          //             '%',
-                          //         style: TextStyle(
-                          //           color: Colors.white,
-                          //         ),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // ),
-                          // SizedBox(height: 8.0),
-                          // RichText(
-                          //   text: TextSpan(
-                          //     text: 'Light: ',
-                          //     style: TextStyle(
-                          //       color: Palette.blue_accent,
-                          //       letterSpacing: 1,
-                          //       fontSize: 18.0,
-                          //     ),
-                          //     children: [
-                          //       TextSpan(
-                          //         text: (retrievedDocs.last.data()['light'])
-                          //                 .toStringAsFixed(0) +
-                          //             '%',
-                          //         style: TextStyle(
-                          //           color: Colors.white,
-                          //         ),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // ),
                           SizedBox(height: 24.0),
                           MoistureChart(
                             docs: retrievedDocs,
                           ),
+                          SizedBox(height: 24.0),
+                          HumidityChart(
+                            docs: retrievedDocs,
+                          ),
+                          SizedBox(height: 24.0),
+                          LightChart(
+                            docs: retrievedDocs,
+                          ),
+                          SizedBox(height: 24.0),
                         ],
                       ),
                       Align(
