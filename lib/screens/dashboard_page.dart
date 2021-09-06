@@ -18,21 +18,27 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  final Stream<QuerySnapshot<Map<String, dynamic>>> _plantDataStream =
-      FirebaseFirestore.instance
-          .collection('plant')
-          .where('timestamp',
-              isGreaterThan:
-                  (DateTime.now().millisecondsSinceEpoch - 43200000) ~/ 1000)
-          .orderBy('timestamp')
-          // .limitToLast(200)
-          .snapshots();
+  late final Stream<QuerySnapshot<Map<String, dynamic>>> _plantDataStream;
+
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Palette.blue_gray,
       statusBarIconBrightness: Brightness.light,
     ));
+    _plantDataStream = FirebaseFirestore.instance
+        .collection('plant')
+        .where('timestamp',
+            isGreaterThan:
+                (DateTime.now().millisecondsSinceEpoch - 43200000) ~/ 1000)
+        .orderBy('timestamp')
+        // .limitToLast(200)
+        .snapshots();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     // print((DateTime.now().millisecondsSinceEpoch - 43200000) ~/ 1000);
     return Scaffold(
       backgroundColor: Palette.blue_gray,

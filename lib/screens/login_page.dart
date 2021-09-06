@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:plant_tinker/res/palette.dart';
 import 'package:plant_tinker/utils/authentication.dart';
 import 'package:plant_tinker/widgets/google_sign_in_button.dart';
@@ -9,6 +10,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Palette.blue_gray,
+      statusBarIconBrightness: Brightness.light,
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
