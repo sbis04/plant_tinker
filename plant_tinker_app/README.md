@@ -1,4 +1,4 @@
-![PlantTinker](screenshots/plant_tinker_cover.png)
+# PlantTinker
 
 IoT based plant monitoring system which is connected to Firebase. This is a Flutter app to display the live data from the sensors attached to the plant on a mobile device.
 
