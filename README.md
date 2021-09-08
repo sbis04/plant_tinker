@@ -1,6 +1,53 @@
 ![PlantTinker](screenshots/plant_tinker_cover.png)
 
-IoT based plant monitoring system which is connected to Firebase. This is a Flutter app to display the live data from the sensors attached to the plant on a mobile device.
+IoT based plant monitoring system which is connected to Firebase. A Flutter app is used to display the live data from the sensors attached to the plant on a mobile device.
+
+## Hardwares
+
+The hardwares used to create the IoT system are as follows:
+
+* Node MCU (ESP-32S)
+* DH-11 (temperature and humidity sensor)
+* Soil moisture sensor (capacitive)
+* LDR (to capture light exposure)
+* LEDs
+* Resistors (3 1K-resistors used)
+* Breadboard
+* Jumper wires
+* Power adapter / Battery (as power source) with connector (USB micro-B)
+
+> WiFi access with stable internet connectivity required to upload the sensor data to Firebase.
+
+## Softwares
+
+The softwares used to build this project are as follows:
+
+* Arduino IDE (with node mcu board and the necessary libraries)
+* Flutter framework (for the app)
+* Code Editor (VS Code, IntelliJ or Android Studio recommended)
+
+## Dependencies
+
+This project required the following dependencies:
+
+### Arduino
+
+* Node MCU (ESP-32S Wroover board driver)
+* DHT (include from Library Manager of Arduino IDE)
+* WiFI (pre-installed)
+* Firebase_ESP_Client (include from Library Manager of Arduino IDE)
+* time (pre-installed)
+
+### Flutter
+
+The packages used in Flutter are:
+
+* firebase_core
+* firebase_auth
+* cloud_firestore
+* google_sign_in
+* fl_chart
+* intl
 
 ## License
 
