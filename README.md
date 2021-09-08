@@ -30,7 +30,7 @@ The softwares used to build this project are as follows:
 
 This project required the following dependencies:
 
-### Arduino
+### Arduino IDE
 
 * Node MCU (ESP-32S Wroover board driver)
 * DHT (include from Library Manager of Arduino IDE)
